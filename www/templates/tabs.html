@@ -1,0 +1,24 @@
+ <ion-view  ng-controller="testController">
+ <ion-item ng-click="onDrag()" class="item-thumbnail-left thumb-nail-header" style="border:none !important">
+    <img class="icon-image" icon-image ng-src={{userPhoto}}>
+    <h2>{{loggedInUserName}}</h2>
+    </ion-item>
+
+    <div class="bar bar-loading " ng-if="data.isLoading">
+    <p style="padding-left:15px"> Reporting to {{managerName}} </p>
+    <p style="padding-left:15px">{{userTitle}}</p>
+    </div>
+      <ion-tabs class="tabs-icon-top tabs-positive">
+
+       
+
+        <ion-tab title="Trends" icon="ion-ios-information" href="#/tab/about">
+          <ion-nav-view name="about-tab"></ion-nav-view>
+        </ion-tab>
+
+         <ion-tab title="Nominate" icon="ion-ios-information" href="#/tab/home">
+          <ion-nav-view name="home-tab"></ion-nav-view>
+        </ion-tab>
+
+      </ion-tabs>
+      </ion-view>

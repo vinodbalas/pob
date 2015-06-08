@@ -1,0 +1,30 @@
+<ion-view  ng-controller="testController">
+   
+    <ion-content padding="true">
+    	
+    <ion- list>
+           
+            <ion-item ng-repeat="item in trends | searchContacts:search"  class="item-thumbnail-left thumb-nail" ng-click="about()">
+                <img class="icon-image" ng-src="{{item.photo.standardEmailPhotoUrl}}">
+                <h2>{{item.employee }}</h2>
+                <p style="padding-left:5px">{{item.subject }}</p>
+                <p style="padding-left:5px">Likes : ({{item.likes }}) , Comments : ({{item.comments.length}})</p>
+
+            </ion-item>
+        </ion-list>
+        
+     
+        </ion-content>
+        <div class="fixed-outside">
+      <div class="row">
+            <div class="col">
+                <button class="button button-circle button-energized icon ion-log-in"></button>
+            </div>
+            <div class="col">
+                <button class="button button-circle button-positive icon ion-social-facebook"></button>
+            </div>
+        </div>
+
+       </div>
+    </div>
+</ion-view>
