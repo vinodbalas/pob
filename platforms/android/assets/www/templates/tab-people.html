@@ -1,0 +1,23 @@
+<ion-view view-title="Nominate">
+  <ion-content class="has-header">
+    <div id="search-bar">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper" id="search-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search" ng-model="query" ng-change="search()"/>
+        </label>
+        <button class="icon ion-mic-a" ng-click="recognizeSpeech()"/>
+      </div>
+    </div>
+  </ion-content>
+  <ion-content id="list-content">
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="person in people" type="item-text-wrap" href="#/tab/people/{{person.id}}">
+        <img ng-src="{{person.face}}">
+        <h2>{{person.name}}</h2>
+        <p>{{person.desg}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,18 @@
+<ion-view view-title="Teams">
+  <ion-content scroll="false">
+    <ion-slide-box show-pager="true"> 
+      <ion-slide  ng-repeat="team in teams">
+        <div class="has-header">
+          <h1>{{team.name}}</h1>
+          <p>{{team.desc}}</p>
+        </div>
+        <div>
+          <ion-scroll direction="x" class="wide-as-needed" >
+            <img ng-repeat="member in team.members" style="width:50px;height:50px" ng-src="{{member.picture}}"></img>
+          </ion-scroll>
+        </div>
+      </ion-slide>
+      <ion-slide-pager></ion-slide-pager>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>
