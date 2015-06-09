@@ -1,0 +1,23 @@
+<ion-view class="signup-background">
+    <ion-content header-shrink scroll-event-interval="5" class>
+	    <div style="height: 70px;"></div>
+		<ion-list>
+            <ion-item class="item-thumbnail-left">
+                <img src="{{person.picture}}">
+                <h2>{{person.name}}</h2>
+                <p>{{person.desg}}</p>
+                <p>{{person.place}}</p>
+            </ion-item>
+            <label class="item item-input">
+                <input type="text" placeholder="Type in Head Line">
+            </label>
+            <label class="item item-input" style="height:200px;">
+                <input type="text" placeholder="Description">
+            </label>
+        </ion-list>
+        <div class="button-bar">
+            <button class="button button-stable button-block">Nominate</button>
+            <button class="button button-stable button-block">Cancel</button>
+        </div>
+   </ion-content>
+</ion-view>

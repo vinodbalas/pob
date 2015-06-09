@@ -1,0 +1,22 @@
+<ion-pane class="signup-background">
+  <ion-content header-shrink scroll-event-interval="5">
+    <ion-header-bar class="bar-subheader item-input-inset">
+      <div class="item item-input-inset" id="search-bar">
+        <label class="item-input-wrapper" id="search-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search" ng-model="query" ng-change="search()"/>
+        </label>
+        <button class="icon ion-mic-a" ng-click="recognizeSpeech()"/>
+      </div>
+    </ion-header-bar>
+    <div style="height: 60px;"></div>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="person in people" type="item-text-wrap" href="#/tab/people/{{person.id}}">
+        <img ng-src="{{person.face}}">
+        <h2>{{person.name}}</h2>
+        <p>{{person.desg}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-pane>
