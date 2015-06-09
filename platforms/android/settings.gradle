@@ -1,4 +1,0 @@
-// GENERATED FILE - DO NOT EDIT
-include ":"
-include ":CordovaLib"
-include ":com.google.playservices:napp451958-google-play-services_lib"
