@@ -1,0 +1,293 @@
+
+.signup-background {
+   background-image: url('../img/welcome_bg2.jpg')
+}
+.fake-statusbar {
+  height: 20px;
+  max-height: 20px;
+  font-size: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  color: #fff;
+  padding: 2px 3px 3px 3px;
+}
+.fake-statusbar .time {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.fake-statusbar .pull-left { float: left; }
+.fake-statusbar .pull-right { float: right; }
+
+.bar-header {
+  height: 64px !important;
+}
+.bar-header > * {
+  margin-top: 20px !important;
+}
+
+.scroll-content{
+  top:0 !important
+}
+
+#social-links ul li span.icongoogleplus {
+  padding: 20px 0 20px 0; 
+}
+.slider {
+  height: 100%;
+}
+.slider-slide {
+  padding-top: 80px;
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+}
+
+#search-input {
+  	text-align: center;
+  	margin-right: 10px;
+}
+
+#search-bar {
+  	background: none;
+  	width: 100%;
+}
+
+#search-bar .item {
+  	background: none;
+  	border: none;
+}
+
+#list-content{
+	margin-top:80px;
+}
+
+.wide-as-needed {
+padding-left:50px;
+padding-right:50px;
+ white-space: nowrap;
+}
+
+/* Empty. Add your own CSS if you like */
+body {
+    font-family: 'Roboto', serif;
+}
+
+#welcome-view {
+    background: url(../img/welcome_bg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+.logo-welcome {
+    width: 120px;
+    height: 120px;
+    margin: 100px auto 60px auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+.login-btns {
+    width: 250px;
+    margin: 0 auto 0 auto;
+}
+
+#btn-reg {
+    float: right;
+}
+
+#login-divider {
+    margin: 40px 0 10px 0;
+}
+
+#footer {
+    background: #5A5A5A;
+    opacity: 0.4;
+    color: #fff;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+#btn-reg, #btn-login {
+    color: white;
+}
+
+.em-small {
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.bar .title {
+    font-weight: bold;
+    text-align: center !important;
+
+}
+
+.em-padding-header {
+    padding: 2px;
+}
+
+.profile-container {
+    position: relative;
+    padding: 35px;
+    background-color:lightblue;
+}
+
+.profile-background {
+    position:absolute;
+    top:-20%;
+    left:-20%;
+    width:140%;
+    height:140%;
+    z-index:1;
+    background-size: cover;
+    -webkit-filter: blur(30px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    opacity: 0.65;
+}
+
+.profile-pic {
+    position:relative;
+    z-index:5;
+    text-align: center;
+    height: 95px;
+    width: 95px;
+    background-size: cover;
+    display: block;
+    margin: 0 auto 0 auto;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+}
+
+.em-gender .item-checkbox {
+    padding-left: 50px !important;
+    font-size: 14px;
+    border-width: 0;
+    padding: 10px 0px 10px 0px;
+    margin: 0px;
+}
+
+.platform-android ion-popover-view.fit {
+    margin-top: 10px !important;
+}
+
+/* Empty. Add your own CSS if you like */
+.icon-image {
+	width:32px !important;
+	height:32px !important;
+	background-size: 100% 100%;
+}
+
+.icon-item{
+	padding-top: 8px !important;
+	
+	padding-left: 50px !important;
+	min-height: 50px !important;
+}
+
+.thumb-nail{
+	border-bottom: 1px gray !important;
+	min-height: 80px !important;
+	padding-left: 50px !important;
+
+}
+.thumb-nail-header{
+	border-bottom: 1px gray !important;
+	min-height: 30px !important;
+	padding-left: 50px !important;
+
+}
+.description{
+	  white-space: normal !important;
+}
+.wide-as-needed {
+
+  white-space: nowrap;
+}
+
+
+.bar.bar-loading {
+  display: block;
+  height: 150px;
+  
+  /* starts right below a normal header */
+  top: 44px;
+  
+  /* make the text centered vertically and horizontally */
+  text-align: center;
+  padding: 0;
+  line-height: 24px;
+
+  /* transition 'sliding down' (check below)*/
+  -webkit-transition: 200ms all;
+}
+
+
+/* 
+ * make the content's top changes animate.
+ * might not always look good, but looks
+ * good when our loader is added & removed
+ */
+.has-header {
+  -webkit-transition: 200ms top;
+}
+.has-header.has-loading {
+  /* 44px (header) + 24px */
+  top: 68px;
+}
+
+/* make loading bar slide up/down */
+.bar-loading.ng-enter,
+.bar-loading.ng-leave.ng-leave-active {
+  height: 0;
+  border-width: 0px;
+}
+.bar-loading.ng-enter.ng-enter-active,
+.bar-loading.ng-leave {
+  height: 150px;
+  border-width: 1px;
+}
+
+
+
+.fixed-outside{
+  position: absolute;
+  bottom: 0;
+  color:white;
+  width: 100%;
+  height:  120px;
+  text-align:center;
+}
+
+.has-bottom .scroll{
+  padding-bottom:120px !important;
+}
+
+.button-circle {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+}

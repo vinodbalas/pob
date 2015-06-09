@@ -1,0 +1,33 @@
+<ion-pane class="signup-background">
+  <ion-content header-shrink scroll-event-interval="5">
+    <div style="height: 60px;"></div>
+    <div class="list card" ng-repeat="trend in trends">
+
+      <div class="item item-avatar">
+        <img src="{{trend.owner.picture}}">
+        <h2>{{trend.owner.name}}</h2>
+        <p>{{trend.subject}}</p>
+      </div>
+
+      <div class="item item-body">
+        <p> {{trend.desc}} </p>
+        <p>
+          <a href="#" class="subdued">{{trend.likes}} Like</a>
+          <a href="#" class="subdued">{{trend.comments}} Comments</a>
+        </p>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-thumbsup"></i>
+          Like
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </a>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-pane>
