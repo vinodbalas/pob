@@ -4,9 +4,10 @@
       <div class="item item-input-inset" id="search-bar">
         <label class="item-input-wrapper" id="search-input">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search" ng-model="query" ng-change="search()"/>
+          <input type="text" placeholder="Search" ng-model="query"/>
         </label>
-        <button class="icon ion-mic-a" ng-click="recognizeSpeech()"/>
+        <button class="icon ion-search" ng-click="search()"/>
+        <button class="icon ion-mic-a" style="margin-left: 5px;" ng-click="recognizeSpeech()"/>
       </div>
     </ion-header-bar>
     <div style="height: 60px;"></div>

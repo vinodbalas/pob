@@ -2,7 +2,7 @@ angular.module('pob.controllers', [])
 
 .controller('welcomeCtrl', function ($scope, $rootScope, $state, $cordovaOauth, $ionicLoading, User) {
   $scope.gplusLogin = function () {    
-    $cordovaOauth.google("460955031667-jlm0g5n1chfg9jav1qdb39e8o3dhi8v1.apps.googleusercontent.com", 
+    /*$cordovaOauth.google("460955031667-jlm0g5n1chfg9jav1qdb39e8o3dhi8v1.apps.googleusercontent.com", 
       [
         "https://www.googleapis.com/auth/plus.login",
         "https://www.googleapis.com/auth/plus.me",
@@ -22,7 +22,7 @@ angular.module('pob.controllers', [])
       });     
     }, function(error) {
       console.log("Error -> " + error);
-    });
+    });*/
   };
 })
 
@@ -34,7 +34,7 @@ angular.module('pob.controllers', [])
   $scope.trends = [];
 
   $ionicLoading.show({ template: 'Loading...' });
-  Trends.all(function(result){console.log(result);
+  Trends.all(function(result){
     $scope.trends = result; 
     $ionicLoading.hide();
   });
@@ -58,15 +58,20 @@ angular.module('pob.controllers', [])
 .controller('PeopleCtrl', function($scope, $ionicLoading, SpeechRecognize, People) {
   $scope.people = [];
 
+  $scope.search = function(){
+    if(this.query){
+      $ionicLoading.show({ template: 'Loading...' });
+      People.search(this.query, function(res){
+        $scope.people = res;
+        $ionicLoading.hide();
+      })
+    }
+  }
+
   $scope.recognizeSpeech = function(){
     SpeechRecognize.recognize(function(result){
         if(result){
           $scope.query = result;
-          $ionicLoading.show({ template: 'Loading...' });
-          People.search(result, function(res){
-            $scope.people = res;
-            $ionicLoading.hide();
-          })
         }
     });
   }
@@ -93,6 +98,24 @@ angular.module('pob.controllers', [])
     } 
     Trends.saveTrend(trend, function(){
       $state.go('tab.people');
+      $ionicLoading.hide();
+    });
+  }
+})
+
+.controller('CommentsCtrl', function($scope, $state, $stateParams, $ionicLoading, Trends) {
+  $scope.trend = Trends.get($stateParams.trendId);
+
+  $scope.back = function(){
+    $state.go("tab.trends");
+  }
+
+  $scope.save = function(){
+    $ionicLoading.show({ template: 'Loading...' });
+    Trends.saveComment($stateParams.trendId, $scope.comment, function(result){
+      console.log(result);
+      $scope.trend.comments = result[0].comments;
+      $state.go('tab.trends');
       $ionicLoading.hide();
     });
   }

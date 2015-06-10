@@ -1,0 +1,22 @@
+<ion-pane class="signup-background">
+  <ion-content header-shrink scroll-event-interval="5">
+    <div style="height: 60px;"></div>
+    <button class="button button-medium ion-chevron-left" ng-click="back()"></button>
+    <ion-list>
+      <ion-item ng-repeat="comment in trend.comments" type="item-text-wrap" href="#/tab/people/{{person.name}}">
+        <p>{{comment}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar style="margin-top:10px;margin-bottom:10px;">
+    <div class="bar bar-footer row">
+      <div class="col col-80 item item input">
+        <input ng-model="Comment" type="text" placeholder="Title" class="item item-input">
+      </div>
+      <div style="width:5px;"></div>
+      <div>
+        <button class="button button-light">Comment</button>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-pane>
