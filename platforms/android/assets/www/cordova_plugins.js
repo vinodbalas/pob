@@ -52,7 +52,7 @@ module.exports.metadata =
     "cordova-plugin-device": "1.0.0",
     "cordova-plugin-inappbrowser": "1.0.0",
     "cordova-plugin-splashscreen": "2.0.0",
-    "cordova-plugin-whitelist": "1.0.0"
+    "cordova-plugin-whitelist": "1.0.1-dev"
 }
 // BOTTOM OF METADATA
 });

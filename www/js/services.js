@@ -232,12 +232,23 @@ pobservices.factory('People', function($http) {
   var people = [];
 
   return {
-    all: function(callback) {
+    get: function(name) {
+      for (var i = 0; i < people.length; i++) {
+        if (people[i].name === name) {
+          return people[i];
+        }
+      }
+      return null;
+    },
+    remove: function(person) {
+      people.splice(people.indexOf(person), 1);
+    },
+    search: function(keyword, callback) {
       var req = {
         method: 'GET',
-        url: nodeurl + '/people'
+        url: nodeurl + '/people?keyword=' + keyword
       }
-      $http(req).success(function(resp){ 
+      $http(req).success(function(resp){ console.log(resp);
         for(var i = 0; i < resp.length; i++){
           people.push(resp[i]);
         }
@@ -245,17 +256,6 @@ pobservices.factory('People', function($http) {
       }).error(function(resp){ 
         console.log('Failure', resp);
       });
-    },
-    remove: function(person) {
-      people.splice(people.indexOf(person), 1);
-    },
-    get: function(personId) {
-      for (var i = 0; i < people.length; i++) {
-        if (people[i].id === parseInt(personId)) {
-          return people[i];
-        }
-      }
-      return null;
     }
   };
 });

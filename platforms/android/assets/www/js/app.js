@@ -9,7 +9,7 @@ angular.module('pob', ['ionic', 'pob.controllers', 'pob.services', 'ngCordovaOau
       StatusBar.styleLightContent();
     }
 
-    $rootScope.$on('$stateChangeStart', function (event, next, current) {     
+    /*$rootScope.$on('$stateChangeStart', function (event, next, current) {     
       var userInfo = $rootScope.userInfo;
       if (!userInfo) {
           if (next.name !== "welcome") {
@@ -20,7 +20,7 @@ angular.module('pob', ['ionic', 'pob.controllers', 'pob.services', 'ngCordovaOau
           event.preventDefault();
           $state.go(next.name);
       } 
-    });
+    });*/
   });
 })
 
@@ -81,5 +81,5 @@ angular.module('pob', ['ionic', 'pob.controllers', 'pob.services', 'ngCordovaOau
     }
   });
 
-  $urlRouterProvider.otherwise('/welcome');
+  $urlRouterProvider.otherwise('/tab');
 });

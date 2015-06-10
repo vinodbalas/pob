@@ -2,7 +2,7 @@ angular.module('pob.controllers', [])
 
 .controller('welcomeCtrl', function ($scope, $rootScope, $state, $cordovaOauth, User) {
   $scope.gplusLogin = function () {    
-    $cordovaOauth.google("460955031667-jlm0g5n1chfg9jav1qdb39e8o3dhi8v1.apps.googleusercontent.com", 
+    /*$cordovaOauth.google("460955031667-jlm0g5n1chfg9jav1qdb39e8o3dhi8v1.apps.googleusercontent.com", 
       [
         "https://www.googleapis.com/auth/plus.login",
         "https://www.googleapis.com/auth/plus.me",
@@ -20,32 +20,25 @@ angular.module('pob.controllers', [])
       });     
     }, function(error) {
       console.log("Error -> " + error);
-    });
+    });*/
   };
 })
 
 .controller('homeCtrl', function($scope, User) {
-  $scope.user = User.getInfo();
-  console.log($scope.user);
+  //$scope.user = User.getInfo();
 })
 
 .controller('TrendsCtrl', function($scope, Trends) {
   $scope.trends = [];
 
-  Trends.all(function(result){
+  Trends.all(function(result){console.log(result);
     $scope.trends = result; 
   });
 })
 
-.controller('TeamsCtrl', function($scope, SpeechRecognize, Teams) {
+.controller('TeamsCtrl', function($scope, Teams) {
   $scope.teams = [];
 
-  $scope.recognizeSpeech = function(){
-    SpeechRecognize.recognize(function(result){
-        $scope.query = result;
-        $scope.$apply(); 
-    });
-  }
   Teams.all(function(result){
     $scope.teams = result; 
   });
@@ -56,15 +49,18 @@ angular.module('pob.controllers', [])
 
   $scope.recognizeSpeech = function(){
     SpeechRecognize.recognize(function(result){
-        $scope.query = result;
-        $scope.$apply(); 
+        if(result){
+          $scope.query = result;
+          People.search(result, function(res){
+            $scope.people = res;
+          })
+        }
     });
   }
-  People.all(function(result){
-    $scope.people = result; 
-  });
 })
 
 .controller('PersonDetailCtrl', function($scope, $stateParams, People) {
+  console.log($stateParams.personId);
   $scope.person = People.get($stateParams.personId);
+  console.log($scope.person);
 })
