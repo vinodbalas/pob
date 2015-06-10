@@ -130,8 +130,8 @@ pobservices.directive('tabsSwipable', ['$ionicGesture', function($ionicGesture){
 var nodeurl = "http://192.168.0.114:8888";
 
 pobservices.factory('User', function($http, $rootScope) {
-  var email;
-  var userInfo = {};
+  var email, userInfo = {};
+
   return {
     getUserFromGoogle: function(callback) {
       var req = {
@@ -145,9 +145,8 @@ pobservices.factory('User', function($http, $rootScope) {
     },
     getUserFromSF: function(callback){
       var req = {
-        method: 'POST',
-        url: nodeurl + '/sfuser',
-        data: {keyword: email}
+        method: 'GET',
+        url: nodeurl + '/people?keyword=' + email
       }
       $http(req).success(function(resp){
         if(resp && resp.length){
@@ -224,6 +223,21 @@ pobservices.factory('Trends', function($http) {
         }
       }
       return null;
+    }, 
+    saveTrend: function(trend, callback){
+      var req = {
+        method: 'POST',
+        url: nodeurl + '/savetrend',
+        data: trend
+      }
+      $http(req).success(function(resp){ 
+        for(var i = 0; i < resp.length; i++){
+          trends.push(resp[i]);
+        }
+        callback();
+      }).error(function(resp){ 
+        console.log('Failure', resp);
+      });
     }
   };
 });
@@ -248,7 +262,7 @@ pobservices.factory('People', function($http) {
         method: 'GET',
         url: nodeurl + '/people?keyword=' + keyword
       }
-      $http(req).success(function(resp){ console.log(resp);
+      $http(req).success(function(resp){ 
         for(var i = 0; i < resp.length; i++){
           people.push(resp[i]);
         }
