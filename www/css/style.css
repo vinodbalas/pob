@@ -1,4 +1,6 @@
-
+.like-comment {
+    background-color: #97A2B4;
+}
 .signup-background {
    background-image: url('../img/welcome_bg2.jpg')
 }
@@ -52,22 +54,22 @@
 }
 
 #search-input {
-  	text-align: center;
-  	margin-right: 10px;
+    text-align: center;
+    margin-right: 10px;
 }
 
 #search-bar {
-  	background: none;
-  	width: 100%;
+    background: none;
+    width: 100%;
 }
 
 #search-bar .item {
-  	background: none;
-  	border: none;
+    background: none;
+    border: none;
 }
 
 #list-content{
-	margin-top:80px;
+  margin-top:80px;
 }
 
 .wide-as-needed {
@@ -75,14 +77,35 @@ padding-left:50px;
 padding-right:50px;
  white-space: nowrap;
 }
+.member-image{
+  display :  inline-table;
+}
 
+.image-icon{
+   width: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  border-radius: 50px;
+} 
+.image-title {
+  width: 60px;
+  display: block;
+  height: 30px;
+  white-space: pre-line;
+}
+.icon-scroll{
+ white-space: nowrap;
+ padding: 10px;
+}
 /* Empty. Add your own CSS if you like */
 body {
     font-family: 'Roboto', serif;
 }
 
 #welcome-view {
-    background: url(../img/welcome_bg.jpg) no-repeat center center fixed; 
+    background: url(../img/welcome_bg.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -196,32 +219,32 @@ hr {
 
 /* Empty. Add your own CSS if you like */
 .icon-image {
-	width:32px !important;
-	height:32px !important;
-	background-size: 100% 100%;
+  width:32px !important;
+  height:32px !important;
+  background-size: 100% 100%;
 }
 
 .icon-item{
-	padding-top: 8px !important;
-	
-	padding-left: 50px !important;
-	min-height: 50px !important;
+  padding-top: 8px !important;
+  
+  padding-left: 50px !important;
+  min-height: 50px !important;
 }
 
 .thumb-nail{
-	border-bottom: 1px gray !important;
-	min-height: 80px !important;
-	padding-left: 50px !important;
+  border-bottom: 1px gray !important;
+  min-height: 80px !important;
+  padding-left: 50px !important;
 
 }
 .thumb-nail-header{
-	border-bottom: 1px gray !important;
-	min-height: 30px !important;
-	padding-left: 50px !important;
+  border-bottom: 1px gray !important;
+  min-height: 30px !important;
+  padding-left: 50px !important;
 
 }
 .description{
-	  white-space: normal !important;
+    white-space: normal !important;
 }
 .wide-as-needed {
 

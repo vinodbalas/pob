@@ -1,18 +1,25 @@
 <ion-pane class="signup-background">
   <ion-content header-shrink scroll-event-interval="5">
-    <div style="height: 30px;"></div>
     <ion-slide-box show-pager="true"> 
-      <ion-slide ng-repeat="team in teams" class="signup-background">
+      <ion-slide  ng-repeat="team in teams" class="signup-background">
         <div class="has-header">
-          <h1>{{team.name}}</h1>
-          <p>{{team.desc}}</p>
+         <h1 style="font-family: cursive;">{{team.name}}</h1>
+        <ion-scroll direction="y"style="width:100%;height:250px">
+         
+          <div style="font-family: serif;  text-align: center;padding:5px;">Individually we can be fairly normal, ordinary and even a bit rough. But through the process of teamwork we can end up in a very different state. Jobs states that teams consisting of incredibly talented people who are passionate and are working hard towards something often times bump up against each other, argue, sometimes fight and make some noise. By working together they polish one another and their ideas and in the process create beautiful stones</div>
+          </ion-scroll>
         </div>
-        <div style="height: 60px;"></div>
-        <ion-scroll direction="x" class="wide-as-needed" >
-          <img ng-repeat="member in team.members" style="width:50px;height:50px" ng-src="{{member.picture}}"></img>
-        </ion-scroll>
+        <div style="margin:20px 20px 30px 20px;">
+           <ion-scroll direction="x" class="icon-scroll">
+             <div class="member-image" ng-repeat="member in team.members">
+                <div>
+                   <img  class="image-icon" ng-src="{{member.picture}}"></img>
+                </div>
+                <div class="image-title">{{member.name}}</div>                             
+            </div>
+          </ion-scroll>
+        </div>
       </ion-slide>
-      <ion-slide-pager></ion-slide-pager>
     </ion-slide-box>
   </ion-content>
 </ion-view>
