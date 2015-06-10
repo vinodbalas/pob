@@ -218,7 +218,7 @@ pobservices.factory('Trends', function($http) {
     },
     get: function(trendId) {
       for (var i = 0; i < trends.length; i++) {
-        if (trends[i].id === parseInt(trendId)) {
+        if (trends[i]._id === trendId) {
           return trends[i];
         }
       }
@@ -235,6 +235,18 @@ pobservices.factory('Trends', function($http) {
           trends.push(resp[i]);
         }
         callback();
+      }).error(function(resp){ 
+        console.log('Failure', resp);
+      });
+    },
+    saveComment: function(trendId, comment, callback){
+      var req = {
+        method: 'POST',
+        url: nodeurl + '/savecomment',
+        data: {trendId: trendId, comment: comment}
+      }
+      $http(req).success(function(resp){ 
+        callback(resp);
       }).error(function(resp){ 
         console.log('Failure', resp);
       });

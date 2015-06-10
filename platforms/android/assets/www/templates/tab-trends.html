@@ -13,7 +13,7 @@
         <p> {{trend.desc}} </p>
         <p>
           <a href="#" class="subdued">{{trend.likes}} Like</a>
-          <a href="#" class="subdued">{{trend.comments}} Comments</a>
+          <a href="#/tab/trends/{{trend._id}}" class="subdued">{{trend.comments.length}} Comments</a>
         </p>
       </div>
 
@@ -22,7 +22,7 @@
           <i class="icon ion-thumbsup"></i>
           Like
         </a>
-        <a class="tab-item" href="#">
+        <a class="tab-item" href="#/tab/trends/{{trend.owner}}">
           <i class="icon ion-chatbox"></i>
           Comment
         </a>

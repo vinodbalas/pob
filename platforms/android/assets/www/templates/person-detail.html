@@ -1,23 +1,19 @@
 <ion-view class="signup-background">
     <ion-content header-shrink scroll-event-interval="5" class>
 	    <div style="height: 70px;"></div>
-		<ion-list>
-            <ion-item class="item-thumbnail-left" ng-model="person">
-                <img src="{{person.picture}}">
-                <h2>{{person.name}}</h2>
-                <p>{{person.desg}}</p>
-                <p>{{person.place}}</p>
-            </ion-item>
-            <label class="item item-input">
-                <input ng-model="title" type="text" placeholder="Title">
-            </label>
-            <label class="item item-input" style="height:180px;">
-                <input ng-model="desc" type="text" placeholder="Description">
-            </label>
-        </ion-list>
-        <div class="button-bar">
-            <button class="button button-stable button-block" ng-click="save()">Nominate</button>
-            <button class="button button-stable button-block" ng-click="cancel()">Cancel</button>
+		<ion-item class="item-thumbnail-left" ng-model="person">
+            <img src="{{person.picture}}">
+            <h2>{{person.name}}</h2>
+            <p>{{person.desg}}</p>
+            <p>{{person.place}}</p>
+        </ion-item>
+        <input ng-model="title" type="text" placeholder="Title" style="margin-top:10px;">
+        <input ng-model="desc" type="textarea" placeholder="Description" style="height: 12em;margin-bottom:10px;">
+    </ion-content>
+    <ion-footer-bar style="margin-top:10px;margin-bottom:10px;">
+        <div class="bar bar-footer row">
+            <button class="button col col-50" ng-click="save()">Nominate</button>
+            <button class="button col col-50" ng-click="cancel()">Cancel</button>
         </div>
-   </ion-content>
+      </ion-footer-bar>
 </ion-view>
