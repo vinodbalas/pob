@@ -1,30 +1,20 @@
 <ion-pane class="signup-background">
 
-  <ion-header-bar class="bar-light">
-    <div class="item-avatar">
-      <img src="{{user.picture}}">
-      <div style="margin-top:-10px;">
-        {{user.name}}
-        <p>{{user.desg}}</p>
-      </div>
-    </div>
-  </ion-header-bar>
-
-  <ion-tabs class="tabs-icon-top tabs-light">
+  <ion-tabs class="tabs-icon-top tabs-dark">
 
     <!-- Trends Tab -->
-    <ion-tab title="Trends" icon-off="ion-arrow-graph-up-right" icon-on="ion-arrow-graph-up-right" href="#/tab/trends">
+    <ion-tab title="Trends" icon-off="ion-arrow-graph-up-right" icon-on="ion-arrow-graph-up-right" href="#/tab/trends" style="background-color:rgb(42, 97, 151)">
       <ion-nav-view name="tab-trends"></ion-nav-view>
     </ion-tab>
 
     <!-- Teams Tab -->
     <ion-tab title="Teams" icon-off="ion-ios-people" icon-on="ion-ios-people" href="#/tab/teams">
-      <ion-nav-view name="tab-teams"></ion-nav-view>
+      <ion-nav-view name="tab-teams" style="background-color:rgb(42, 97, 151)"></ion-nav-view>
     </ion-tab>
 
     <!-- Nominate Tab -->
     <ion-tab title="Nominate" icon-off="ion-ios-person" icon-on="ion-ios-person" href="#/tab/people">
-      <ion-nav-view name="tab-people"></ion-nav-view>
+      <ion-nav-view name="tab-people" style="background-color:rgb(42, 97, 151)"></ion-nav-view>
     </ion-tab>
     
   </ion-tabs>

@@ -1,33 +1,65 @@
 <ion-pane class="signup-background">
+  <ion-header-bar class="bar-dark">
+    <div class="wrap">
+      <img src="img/pob.png">
+      <img  ng-src="{{user.picture}}">
+         <div style="position:absolute;right:55px;color:white;text-align:right;line-height:20px">
+        {{user.name}}
+       </div>   
+    </div>
+  </ion-header-bar>
   <ion-content header-shrink scroll-event-interval="5">
     <div style="height: 60px;"></div>
     <div class="list card" ng-repeat="trend in trends">
-
       <div class="item item-avatar">
         <img src="{{trend.owner.picture}}">
         <h2>{{trend.owner.name}}</h2>
         <p>{{trend.title}}</p>
+        <div style="font-size:12px;">
+          Nominated By : {{trend.nominatedBy.name}}
+        </div>
       </div>
-
-      <div class="item item-body">
+      <div style="margin: 10px 10px;">
         <p> {{trend.desc}} </p>
-        <p>
-          <a href="#" class="subdued">{{trend.likes}} Like</a>
-          <a href="#/tab/trends/{{trend._id}}" class="subdued">{{trend.comments.length}} Comments</a>
-        </p>
       </div>
-
-      <div class="item tabs tabs-secondary tabs-icon-left">
-        <a class="tab-item" href="#">
-          <i class="icon ion-thumbsup"></i>
-          Like
+      
+      <div class="item tabs tabs-secondary tabs-icon-left" style="background:rgba(228, 223, 223, 0.35) !important">
+        <a class="tab-item" ng-click="likeTrend('{{trend._id}}')" style="color:grey !important" href="#">
+          {{trend.likes}} <i style="padding-left:5px;" class="icon ion-thumbsup"></i> Like
         </a>
-        <a class="tab-item" href="#/tab/trends/{{trend.owner}}">
-          <i class="icon ion-chatbox"></i>
-          Comment
+        <a class="tab-item" ng-click="openModal('{{trend._id}}')" style="color:grey !important" href="#">
+          {{trend.comments.length}} <i style="padding-left:5px;" class="icon ion-chatbox"></i> Comment
         </a>
       </div>
 
     </div>
   </ion-content>
+  <script id="comments.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar>
+        <h1 class="title">Comments</h1>
+        <button class="button button-large ion-close-round" ng-click="closeModal()"></button>
+      </ion-header-bar>
+      <ion-content header-shrink scroll-event-interval="5">
+        <div style="height: 60px;"></div>
+        <ion-list>
+          <ion-item ng-repeat="comment in trend.comments track by $index">
+            <p>{{comment}}</p>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+      <ion-footer-bar style="margin-top:10px;margin-bottom:10px;">
+        <div class="bar bar-footer row">
+          <div class="col col-70 item item input">
+            <input ng-model="comment" type="text" placeholder="Comment" class="item item-input">
+          </div>
+          <div style="width:5px;"></div>
+          <div>
+            <button class="icon ion-mic-a" style="margin-left: 5px;height:30px;width:30px;" ng-click="recognizeSpeech()"/>
+            <button class="button button-light" style="margin-left: 5px;" ng-click="saveComment(trend._id)">Comment</button>
+          </div>
+        </div>
+      </ion-footer-bar>
+    </ion-modal-view>
+  </script>
 </ion-pane>

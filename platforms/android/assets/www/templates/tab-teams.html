@@ -1,22 +1,30 @@
 <ion-pane class="signup-background">
-  <ion-content header-shrink scroll-event-interval="5">
+  <ion-header-bar class="bar-dark">
+    <div class="wrap">
+      <img src="img/pob.png">
+      <img  ng-src="{{user.picture}}">
+         <div style="position:absolute;right:55px;color:white;text-align:right;line-height:20px">
+        {{user.name}}
+       </div>   
+    </div>
+  </ion-header-bar>
+  <ion-content scroll-event-interval="5" style="background-color:white;">
     <ion-slide-box show-pager="true"> 
       <ion-slide  ng-repeat="team in teams" class="signup-background">
         <div class="has-header">
-         <h1 style="font-family: cursive;">{{team.name}}</h1>
-        <ion-scroll direction="y"style="width:100%;height:250px">
-         
-          <div style="font-family: serif;  text-align: center;padding:5px;">Individually we can be fairly normal, ordinary and even a bit rough. But through the process of teamwork we can end up in a very different state. Jobs states that teams consisting of incredibly talented people who are passionate and are working hard towards something often times bump up against each other, argue, sometimes fight and make some noise. By working together they polish one another and their ideas and in the process create beautiful stones</div>
+          <h1>{{team.name}}</h1>
+          <ion-scroll direction="y">
+            <div style="font-family: serif;  text-align: center;padding:5px;">{{team.desc}}</div>
           </ion-scroll>
         </div>
-        <div style="margin:20px 20px 30px 20px;">
+        <div style="margin:20px 0px 50px 0px;">
            <ion-scroll direction="x" class="icon-scroll">
-             <div class="member-image" ng-repeat="member in team.members">
+              <a style="text-decoration:none !important;color:black" class="member-image" ng-repeat="member in team.members" href="#/tab/people/{{member.email}}~team">
                 <div>
                    <img  class="image-icon" ng-src="{{member.picture}}"></img>
                 </div>
                 <div class="image-title">{{member.name}}</div>                             
-            </div>
+              </a>
           </ion-scroll>
         </div>
       </ion-slide>

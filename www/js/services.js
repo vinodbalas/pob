@@ -130,27 +130,26 @@ pobservices.directive('tabsSwipable', ['$ionicGesture', function($ionicGesture){
 var nodeurl = "http://192.168.0.114:8888";
 
 pobservices.factory('User', function($http, $rootScope) {
-  var email, userInfo = {};
-
   return {
     getUserFromGoogle: function(callback) {
       var req = {
         method: 'GET',
-        url: 'https://www.googleapis.com/plus/v1/people/me?access_token='+$rootScope.userInfo.access_token
+        url: 'https://www.googleapis.com/plus/v1/people/me?access_token=' + $rootScope.userInfo.access_token
       }
-      $http(req).success(function(resp){ 
-        email = resp.emails[0].value;
-        callback();
+      $http(req).success(function(resp){
+        callback(resp.emails[0].value);
       });
     },
-    getUserFromSF: function(callback){
+    getUserFromSF: function(email, callback){
       var req = {
         method: 'GET',
         url: nodeurl + '/people?keyword=' + email
       }
       $http(req).success(function(resp){
         if(resp && resp.length){
-          userInfo = resp[0];
+          for(var key in resp[0]){
+            $rootScope.userInfo[key] = resp[0][key];
+          }
           callback();
         }
       }).error(function(resp){
@@ -191,11 +190,21 @@ pobservices.factory('Teams', function($http) {
         }
       }
       return null;
+    },
+    getMember: function(memberId){
+      for (var i = 0; i < teams.length; i++) {
+        var team = teams[i];
+        for (var j = 0; j < team.members.length; j++) {
+          if (team.members[j].email === memberId) {
+            return team.members[j];
+          }
+        }
+      }
     }
   };
 });
 
-pobservices.factory('Trends', function($http) {
+pobservices.factory('Trends', function($http, $rootScope) {
   var trends = [];
 
   return {
@@ -245,11 +254,38 @@ pobservices.factory('Trends', function($http) {
         url: nodeurl + '/savecomment',
         data: {trendId: trendId, comment: comment}
       }
-      $http(req).success(function(resp){ 
-        callback(resp);
+      var me = this;
+      $http(req).success(function(res){ 
+        me.update(res, callback);
       }).error(function(resp){ 
         console.log('Failure', resp);
       });
+    },
+    likeTrend: function(trendId, callback){
+      var req = {
+        method: 'POST',
+        url: nodeurl + '/liketrend',
+        data: { trendId: trendId, userId: $rootScope.userInfo && $rootScope.userInfo.email }
+      }
+      var me = this;
+      $http(req).success(function(res){ 
+        me.update(res, callback);
+      }).error(function(resp){ 
+        console.log('Failure', resp);
+      });
+    }, 
+    update: function(res, callback){
+      if(res && res.length){
+        var trend = this.get(res[0]._id);
+        if(trend){
+          for(var key in trend){
+            if(res[0][key]){
+              trend[key] = res[0][key];
+            }
+          }
+        }
+      }
+      callback();
     }
   };
 });
@@ -258,9 +294,9 @@ pobservices.factory('People', function($http) {
   var people = [];
 
   return {
-    get: function(name) {
+    get: function(email) {
       for (var i = 0; i < people.length; i++) {
-        if (people[i].name === name) {
+        if (people[i].email === email) {
           return people[i];
         }
       }
@@ -275,6 +311,7 @@ pobservices.factory('People', function($http) {
         url: nodeurl + '/people?keyword=' + keyword
       }
       $http(req).success(function(resp){ 
+        people = [];
         for(var i = 0; i < resp.length; i++){
           people.push(resp[i]);
         }

@@ -8,8 +8,7 @@ angular.module('pob', ['ionic', 'pob.controllers', 'pob.services', 'ngCordovaOau
     if (window.StatusBar) {
       StatusBar.styleLightContent();
     }
-
-    /*$rootScope.$on('$stateChangeStart', function (event, next, current) {     
+    $rootScope.$on('$stateChangeStart', function (event, next, current) {     
       var userInfo = $rootScope.userInfo;
       if (!userInfo) {
           if (next.name !== "welcome") {
@@ -20,7 +19,7 @@ angular.module('pob', ['ionic', 'pob.controllers', 'pob.services', 'ngCordovaOau
           event.preventDefault();
           $state.go(next.name);
       } 
-    });*/
+    });
   });
 })
 
@@ -28,19 +27,15 @@ angular.module('pob', ['ionic', 'pob.controllers', 'pob.services', 'ngCordovaOau
   $ionicConfigProvider.tabs.position('bottom');
 
   $stateProvider
-
   .state('welcome', {
       url: "/welcome",
       templateUrl: "templates/welcome.html",
       controller: 'welcomeCtrl'
   })
-
   .state('tab', {
     url: "/tab",
-    templateUrl: "templates/tabs.html",
-    controller: 'homeCtrl'
+    templateUrl: "templates/tabs.html"
   })
-
   .state('tab.trends', {
     url: '/trends',
     views: {
@@ -50,7 +45,6 @@ angular.module('pob', ['ionic', 'pob.controllers', 'pob.services', 'ngCordovaOau
       }
     }
   })
-
   .state('tab.teams', {
     url: '/teams',
     views: {
@@ -60,7 +54,6 @@ angular.module('pob', ['ionic', 'pob.controllers', 'pob.services', 'ngCordovaOau
       }
     }
   })
-
   .state('tab.people', {
     url: '/people',
     views: {
@@ -70,7 +63,6 @@ angular.module('pob', ['ionic', 'pob.controllers', 'pob.services', 'ngCordovaOau
       }
     }
   })
-
   .state('tab.person-detail', {
     url: '/people/:personId',
     views: {
@@ -79,17 +71,7 @@ angular.module('pob', ['ionic', 'pob.controllers', 'pob.services', 'ngCordovaOau
         controller: 'PersonDetailCtrl'
       }
     }
-  })
-
-  .state('tab.comments', {
-    url: '/trends/:trendId',
-    views: {
-      'tab-trends': {
-        templateUrl: 'templates/comments.html',
-        controller: 'CommentsCtrl'
-      }
-    }
   });
 
-  $urlRouterProvider.otherwise('/tab');
+  $urlRouterProvider.otherwise('/welcome');
 });

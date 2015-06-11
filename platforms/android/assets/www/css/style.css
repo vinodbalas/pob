@@ -2,7 +2,29 @@
     background-color: #97A2B4;
 }
 .signup-background {
-   background-image: url('../img/welcome_bg2.jpg')
+ background-color : rgb(214, 217, 220) ;
+}
+
+
+div.wrap {
+   width: 100%;
+   position: relative;
+}
+
+.wrap img {
+   position: absolute;
+   bottom: 0;
+   width: 50px !important;
+   height: 50px !important;
+   border-radius: 50% !important;
+}
+
+.wrap img:nth-of-type(1) {
+   left: 0;
+}
+
+.wrap img:nth-of-type(2) {
+   right: 0;
 }
 .fake-statusbar {
   height: 20px;

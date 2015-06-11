@@ -1,5 +1,14 @@
 <ion-view class="signup-background">
-    <ion-content header-shrink scroll-event-interval="5" class>
+    <ion-header-bar class="bar-dark">
+    <div class="wrap">
+      <img src="img/pob.png">
+      <img  ng-src="{{user.picture}}">
+         <div style="position:absolute;right:55px;color:white;text-align:right;line-height:20px">
+        {{user.name}}
+       </div>   
+    </div>
+  </ion-header-bar>
+    <ion-content scroll-event-interval="5" class>
 	    <div style="height: 70px;"></div>
 		<ion-item class="item-thumbnail-left" ng-model="person">
             <img src="{{person.picture}}">
@@ -7,8 +16,8 @@
             <p>{{person.desg}}</p>
             <p>{{person.place}}</p>
         </ion-item>
-        <input ng-model="title" type="text" placeholder="Title" style="margin-top:10px;">
-        <input ng-model="desc" type="textarea" placeholder="Description" style="height: 12em;margin-bottom:10px;">
+        <input ng-model="inp.title" type="text" value="{{title}}" placeholder="Add your # tags" style="margin-top:10px;">
+        <input ng-model="inp.desc" type="textarea" value="{{desc}}" placeholder="Description" style="height: 12em;margin-bottom:10px;">
     </ion-content>
     <ion-footer-bar style="margin-top:10px;margin-bottom:10px;">
         <div class="bar bar-footer row">

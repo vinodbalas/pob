@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<script type="text/javascript" src="jquery/jquery-1.8.0.min.js"></script>
+
+		<script type="text/javascript" charset="utf-8">
+
+			function getUserInfo(){
+				$.ajax({
+			        url: "sfuser",
+			        type: "POST",
+			        contentType: "application/json",
+			        data: {keyword: 'manish.kush'},
+			        success: function(users, opts) {
+			            console.log(users);
+			        },
+			        failure: function(error) {
+			            console.log(error);
+			        }
+			    });	
+			}
+
+			function getTrends(){
+				$.ajax({
+			        url: "trends",
+			        type: "POST",
+			        contentType: "application/json",
+			        data: {},
+			        success: function(users, opts) {
+			            console.log(users);
+			        },
+			        failure: function(error) {
+			            console.log(error);
+			        }
+			    });	
+			}
+
+			function getTeams(sParam){
+			    $.ajax({
+			        url: "teams",
+			        type: "POST",
+			        contentType: "application/json",
+			        data: {},
+			        success: function(users, opts) {
+			            console.log(users);
+			        },
+			        failure: function(error) {
+			            console.log(error);
+			        }
+			    });	
+			}
+
+			$(document).ready(function(){
+				getTrends();
+				getTeams();
+				getUserInfo();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="client_display_root"></div>
+	</body>
+</html>

@@ -1,5 +1,14 @@
 <ion-pane class="signup-background">
-  <ion-content header-shrink scroll-event-interval="5">
+  <ion-header-bar class="bar-dark">
+    <div class="wrap">
+      <img src="img/pob.png">
+      <img  ng-src="{{user.picture}}">
+         <div style="position:absolute;right:55px;color:white;text-align:right;line-height:20px">
+        {{user.name}}
+       </div>   
+    </div>
+  </ion-header-bar>
+  <ion-content scroll-event-interval="5">
     <ion-header-bar class="bar-subheader item-input-inset">
       <div class="item item-input-inset" id="search-bar">
         <label class="item-input-wrapper" id="search-input">
@@ -12,7 +21,7 @@
     </ion-header-bar>
     <div style="height: 60px;"></div>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="person in people" type="item-text-wrap" href="#/tab/people/{{person.name}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="person in people" type="item-text-wrap" href="#/tab/people/{{person.email}}">
         <img ng-src="{{person.picture}}">
         <h2>{{person.name}}</h2>
         <p>{{person.desg}}</p>
